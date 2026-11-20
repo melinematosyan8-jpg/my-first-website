@@ -1,125 +1,1011 @@
-<div class="program-photo">
-  <img src="https://files.catbox.moe/3o849e.jpeg" class="program-img">
+<!DOCTYPE html>
 
-  <svg class="route-line" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path d="
-      M82 5
-      C83 18 79 25 68 33
-      C55 42 39 47 29 56
-      C19 65 23 73 38 78
-      C52 83 67 82 72 89
-      C76 95 69 98 58 100
-    "/>
-  </svg>
+<html lang=“hy”>
 
-  <div class="heart-move">🤍</div>
-</div>
+<head>
+
+<meta charset=“UTF-8”>
+
+<meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
+
+<title>Էդմոն և Էմիլի | Մկրտություն</title>
+
+<link rel=“preconnect” href=“https://fonts.googleapis.com”>
+
+<link href=“https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Armenian:wght@300;400;500;600&display=swap” rel=“stylesheet”>
 
 <style>
-.program-photo {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+
+ background:#f4eee8;
+
+ color:#65564d;
+
+ font-family:’Noto Serif Armenian’,serif;
+
+ overflow-x:hidden;
+
 }
 
-.program-img {
-  width: 100%;
-  height: auto;
-  display: block;
+:root{—gold:#b99a6b;—cream:#f8f2ec}
+
+section{
+
+ min-height:100vh;
+
+ padding:75px 22px;
+
+ display:flex;
+
+ flex-direction:column;
+
+ align-items:center;
+
+ justify-content:center;
+
+ text-align:center;
+
+ position:relative;
+
 }
 
-.route-line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  pointer-events: none;
+h1,h2{font-weight:400}
+
+.script{
+
+ font-family:’Great Vibes’,cursive;
+
+ color:var(—gold);
+
 }
 
-.route-line path {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+#opening{
 
-  /* --- --- --- */
-  stroke-dasharray: 4 4;
+ background:radial-gradient(circle,#fffaf5,#eaded3);
+
+ min-height:100svh;
+
 }
 
-.heart-move {
-  position: absolute;
-  z-index: 20;
-  width: 42px;
-  height: 42px;
-  margin-left: -21px;
-  margin-top: -21px;
-  font-size: 40px;
-  line-height: 42px;
-  text-align: center;
-  pointer-events: none;
+.dove{
 
-  animation: moveHeart 9s linear infinite;
+ font-size:85px;
+
+ cursor:pointer;
+
+ animation:float 3s ease-in-out infinite;
+
+ filter:drop-shadow(0 8px 12px #b99a6b55);
+
 }
 
-@keyframes moveHeart {
-  0% {
-    left: 82%;
-    top: 5%;
-  }
+.tap{
 
-  10% {
-    left: 81%;
-    top: 18%;
-  }
+ margin-top:25px;
 
-  20% {
-    left: 69%;
-    top: 33%;
-  }
+ letter-spacing:3px;
 
-  30% {
-    left: 48%;
-    top: 43%;
-  }
+ font-size:11px;
 
-  40% {
-    left: 30%;
-    top: 56%;
-  }
+ color:#a58b70;
 
-  50% {
-    left: 22%;
-    top: 66%;
-  }
-
-  60% {
-    left: 38%;
-    top: 78%;
-  }
-
-  70% {
-    left: 58%;
-    top: 81%;
-  }
-
-  80% {
-    left: 72%;
-    top: 89%;
-  }
-
-  90% {
-    left: 70%;
-    top: 95%;
-  }
-
-  100% {
-    left: 58%;
-    top: 100%;
-  }
 }
+
+@keyframes float{
+
+ 0%,100%{transform:translateY(0) rotate(-3deg)}
+
+ 50%{transform:translateY(-16px) rotate(3deg)}
+
+}
+
+#invitation{display:none}
+
+#invitation.show{display:flex;animation:appear 1.5s ease}
+
+@keyframes appear{
+
+ from{opacity:0;transform:translateY(25px)}
+
+ to{opacity:1;transform:translateY(0)}
+
+}
+
+.names{
+
+ font-family:’Great Vibes’,cursive;
+
+ font-size:clamp(55px,13vw,88px);
+
+ color:#b39367;
+
+ line-height:1.3;
+
+}
+
+.small-line{
+
+ width:75px;height:1px;background:var(—gold);
+
+ margin:25px auto;
+
+}
+
+p{
+
+ font-size:15px;
+
+ line-height:2.2;
+
+ max-width:520px;
+
+}
+
+.eyebrow{
+
+ letter-spacing:4px;
+
+ font-size:10px;
+
+ color:#b39367;
+
+ margin-bottom:22px;
+
+}
+
+.divider{
+
+ color:#b99a6b;
+
+ font-size:27px;
+
+ margin:35px 0;
+
+}
+  /* Լուսանկարների պատկերասրահ */
+
+.gallery{
+
+ display:grid;
+
+ grid-template-columns:1fr 1fr;
+
+ gap:12px;
+
+ width:100%;
+
+ max-width:520px;
+
+ margin:35px auto;
+
+}
+
+.gallery img{
+
+ width:100%;
+
+ height:230px;
+
+ object-fit:cover;
+
+ border-radius:120px 120px 8px 8px;
+
+ box-shadow:0 8px 25px #8b765522;
+
+}
+
+.gallery img:last-child{
+
+ grid-column:1/3;
+
+ width:72%;
+
+ height:260px;
+
+ justify-self:center;
+
+ border-radius:160px 160px 8px 8px;
+
+}
+
+/* Աստվածաշնչյան խոսք */
+
+.verse{
+
+ background:#eee3d8;
+
+ width:100%;
+
+ padding:65px 25px;
+
+}
+
+.verse .dove-icon{
+
+ font-size:48px;
+
+ margin-bottom:20px;
+
+}
+
+.verse-text{
+
+ font-size:19px;
+
+ line-height:2;
+
+ color:#8c7359;
+
+ font-weight:300;
+
+}
+
+.reference{
+
+ margin-top:18px;
+
+ font-size:12px;
+
+ letter-spacing:2px;
+
+ color:#ad916b;
+
+}
+
+/* Հետհաշվարկ */
+
+.countdown{
+
+ display:flex;
+
+ justify-content:center;
+
+ gap:13px;
+
+ margin:35px auto;
+
+ flex-wrap:wrap;
+
+}
+
+.time-box{
+
+ min-width:65px;
+
+ padding:16px 10px;
+
+ border:1px solid #c9ae8a;
+
+ border-radius:40px 40px 8px 8px;
+
+}
+
+.time-box strong{
+
+ display:block;
+
+ font-size:25px;
+
+ color:#a98a62;
+
+ font-weight:400;
+
+}
+
+.time-box span{
+
+ font-size:10px;
+
+ color:#927c67;
+
+}
+
+/* Օրվա ծրագիր */
+
+.schedule{
+
+ width:100%;
+
+ max-width:500px;
+
+ margin:35px auto;
+
+}
+
+.event{
+
+ padding:25px 15px;
+
+ border-bottom:1px solid #d8c6b2;
+
+}
+
+.event-time{
+
+ font-family:’Great Vibes’,cursive;
+
+ font-size:42px;
+
+ color:#b39367;
+
+}
+
+.event h3{
+
+ font-size:17px;
+
+ font-weight:400;
+
+ margin:12px 0;
+
+}
+
+.event p{font-size:13px}
+
+.map-link{
+
+ display:inline-block;
+
+ margin-top:17px;
+
+ padding:10px 22px;
+
+ border:1px solid #b99a6b;
+
+ border-radius:30px;
+
+ color:#9b805d;
+
+ text-decoration:none;
+
+ font-size:12px;
+
+ transition:.3s;
+
+}
+
+.map-link:hover{
+
+ background:#b99a6b;
+
+ color:white;
+
+}
+
+/* Զարդարանք */
+
+.ornament{
+
+ font-size:38px;
+
+ color:#b99a6b;
+
+ margin:25px 0;
+
+}
+
+.gold-line{
+
+ width:100px;
+
+ height:1px;
+
+ background:linear-gradient(to right,transparent,#b99a6b,transparent);
+
+ margin:25px auto;
+
+}
+
+/* Հայտնվելու անիմացիա */
+
+.reveal{
+
+ opacity:0;
+
+ transform:translateY(35px);
+
+ transition:all 1s ease;
+
+}
+
+.reveal.visible{
+
+ opacity:1;
+
+ transform:translateY(0);
+
+}
+
+/* Երաժշտության կոճակ */
+
+.music{
+
+ position:fixed;
+
+ bottom:22px;
+
+ right:20px;
+
+ width:48px;
+
+ height:48px;
+
+ border-radius:50%;
+
+ border:1px solid #c3a77e;
+
+ background:#f8f1e9;
+
+ color:#a88a62;
+
+ font-size:20px;
+
+ z-index:99;
+
+ box-shadow:0 4px 15px #8b765533;
+
+}
+
+footer{
+
+ padding:45px 20px;
+
+ background:#e9ded3;
+
+ text-align:center;
+
+ font-size:12px;
+
+ color:#927b64;
+
+}
+
+@media(max-width:420px){
+
+ .gallery img{height:190px}
+
+ .gallery img:last-child{height:220px}
+
+}
+
 </style>
-  
+</head>
+
+<body>
+
+<!— Բացման էջ —>
+
+<section id=“opening”>
+
+  <div class=“eyebrow”>A SPECIAL DAY</div>
+
+  <div class=“dove” onclick=“openInvitation()”>🕊️</div>
+
+  <p class=“tap”>ՍԵՂՄԵՔ ԱՂԱՎՆՈՒՆ՝ ՀՐԱՎԻՐԱՏՈՄՍԸ ԲԱՑԵԼՈՒ ՀԱՄԱՐ</p>
+
+</section>
+
+<!— Հիմնական հրավիրատոմս —>
+
+<div id=“invitation”>
+
+<section>
+
+  <div class=“eyebrow”>ՄԵՐ ՓՈՔՐԻԿ ՀՐԱՇՔՆԵՐԻ ՄԿՐՏՈՒԹՅՈՒՆԸ</div>
+
+  <h1 class=“names”>Էդմոն և Էմիլի</h1>
+
+  <div class=“small-line”></div>
+
+  <p>26 Դեկտեմբեր 2026</p>
+
+  <div class=“ornament”>✧</div>
+
+  <p>
+
+    Սիրելի´ հյուրեր<br><br>
+
+    Այս օրվա գեղեցկությունը մեզ համար ամբողջական կլինի,
+
+    երբ կիսենք այն մարդկանց հետ, ովքեր մեր կյանքի կարևոր մասն են:
+
+  </p>
+
+  <div class=“divider”>❦</div>
+
+  <p>
+
+    Մենք սրտանց ցանկանում ենք, որ մեր կյանքի այս լուսավոր օրը կիսեք մեզ հետ:
+
+  </p>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“eyebrow”>OUR LITTLE ANGELS</div>
+
+  <h2 class=“script” style=“font-size:48px”>Our precious moments</h2>
+
+  <div class=“gallery”>
+
+    <img src=“images/edmon.jpg” alt=“Էդմոն”>
+
+    <img src=“images/emili.jpg” alt=“Էմիլի”>
+
+    <img src=“images/together.jpg” alt=“Էդմոն և Էմիլի”>
+
+  </div>
+
+</section>
+
+<section class=“verse reveal”>
+
+  <div class=“dove-icon”>🕊️</div>
+
+  <div class=“gold-line”></div>
+
+  <p class=“verse-text”>
+
+    «Որովհետև քեզ մոտ է կյանքի աղբյուրը,
+
+    և քո լույսով ենք լույսը տեսնում»
+
+  </p>
+
+  <div class=“reference”>ՍԱՂՄՈՍ 36:9</div>
+
+  <div class=“gold-line”></div>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“eyebrow”>COUNTDOWN TO OUR SPECIAL DAY</div>
+
+  <h2 class=“script” style=“font-size:52px”>Սպասում ենք ձեզ</h2>
+
+  <div class=“countdown”>
+
+    <div class=“time-box”><strong id=“days”>00</strong><span>ՕՐ</span></div>
+
+    <div class=“time-box”><strong id=“hours”>00</strong><span>ԺԱՄ</span></div>
+
+    <div class=“time-box”><strong id=“minutes”>00</strong><span>ՐՈՊԵ</span></div>
+
+    <div class=“time-box”><strong id=“seconds”>00</strong><span>ՎԱՅՐԿՅԱՆ</span></div>
+
+  </div>
+
+  <div class=“ornament”>✧ ❦ ✧</div>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“eyebrow”>THE PROGRAM</div>
+
+  <h2 class=“script” style=“font-size:55px”>Օրվա ծրագիրը</h2>
+
+  <div class=“schedule”>
+
+    <div class=“event”>
+
+      <div class=“event-time”>12:00</div>
+
+      <h3>Հաղարծին</h3>
+
+      <p>Սուրբ Մկրտություն</p>
+
+      <a class=“map-link”
+
+         href=“https://www.google.com/maps/search/?api=1&query=Haghartsin+Monastery+Armenia”
+
+         target=“_blank”>Ինչպես հասնել ↗</a>
+
+    </div>
+
+    <div class=“ornament”>✧</div>
+
+    <div class=“event”>
+
+      <div class=“event-time”>16:00</div>
+
+      <h3>Նոր Դվին</h3>
+
+      <p>Խնջույք</p>
+
+      <a class=“map-link”
+
+         href=“https://www.google.com/maps/search/?api=1&query=Nor+Dvin+Restaurant+Armenia”
+
+         target=“_blank”>Ինչպես հասնել ↗</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“ornament”>♕</div>
+
+  <h2 class=“script” style=“font-size:52px”>With love</h2>
+
+  <div class=“gold-line”></div>
+
+  <p>
+
+    Ձեր ներկայությունը այս հիշողության մի մասն է,
+
+    որը մեզ հետ կմնա երկար:
+
+  </p>
+
+  <div class=“ornament”>🕊️</div>
+
+</section>
+
+<footer>
+
+  Հրավիրատոմսը սիրով պատրաստեց՝
+
+  <strong>amoreellaa</strong>
+
+</footer>
+
+</div>
+
+<button class=“music” onclick=“toggleMusic()”>♫</button>
+
+<audio id=“music” loop>
+
+  <source src=“music.mp3” type=“audio/mpeg”>
+
+</audio>
+
+<script>
+
+function openInvitation(){
+
+  document.getElementById(‘opening’).style.display=‘none’;
+
+  document.getElementById(‘invitation’).classList.add(‘show’);
+
+  window.scrollTo({top:0,behavior:’smooth’});
+
+}
+
+function toggleMusic(){
+
+  const music=document.getElementById(‘music’);
+
+  if(music.paused){
+
+    music.play();
+
+  }else{
+
+    music.pause();
+
+  }
+
+}
+
+const target=new Date(‘2026-12-26T12:00:00’).getTime();
+
+function updateCountdown(){
+
+  const now=new Date().getTime();
+
+  const distance=target-now;
+
+  if(distance<=0){
+
+    document.getElementById(‘days’).textContent=‘00’;
+
+    document.getElementById(‘hours’).textContent=‘00’;
+
+    document.getElementById(‘minutes’).textContent=‘00’;
+
+    document.getElementById(‘seconds’).
+      </head>
+
+<body>
+
+<!— Բացման էջ —>
+
+<section id=“opening”>
+
+  <div class=“eyebrow”>A SPECIAL DAY</div>
+
+  <div class=“dove” onclick=“openInvitation()”>🕊️</div>
+
+  <p class=“tap”>ՍԵՂՄԵՔ ԱՂԱՎՆՈՒՆ՝ ՀՐԱՎԻՐԱՏՈՄՍԸ ԲԱՑԵԼՈՒ ՀԱՄԱՐ</p>
+
+</section>
+
+<!— Հիմնական հրավիրատոմս —>
+
+<div id=“invitation”>
+
+<section>
+
+  <div class=“eyebrow”>ՄԵՐ ՓՈՔՐԻԿ ՀՐԱՇՔՆԵՐԻ ՄԿՐՏՈՒԹՅՈՒՆԸ</div>
+
+  <h1 class=“names”>Էդմոն և Էմիլի</h1>
+
+  <div class=“small-line”></div>
+
+  <p>26 Դեկտեմբեր 2026</p>
+
+  <div class=“ornament”>✧</div>
+
+  <p>
+
+    Սիրելի´ հյուրեր<br><br>
+
+    Այս օրվա գեղեցկությունը մեզ համար ամբողջական կլինի,
+
+    երբ կիսենք այն մարդկանց հետ, ովքեր մեր կյանքի կարևոր մասն են:
+
+  </p>
+
+  <div class=“divider”>❦</div>
+
+  <p>
+
+    Մենք սրտանց ցանկանում ենք, որ մեր կյանքի այս լուսավոր օրը կիսեք մեզ հետ:
+
+  </p>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“eyebrow”>OUR LITTLE ANGELS</div>
+
+  <h2 class=“script” style=“font-size:48px”>Our precious moments</h2>
+
+  <div class=“gallery”>
+
+    <img src=“images/edmon.jpg” alt=“Էդմոն”>
+
+    <img src=“images/emili.jpg” alt=“Էմիլի”>
+
+    <img src=“images/together.jpg” alt=“Էդմոն և Էմիլի”>
+
+  </div>
+
+</section>
+
+<section class=“verse reveal”>
+
+  <div class=“dove-icon”>🕊️</div>
+
+  <div class=“gold-line”></div>
+
+  <p class=“verse-text”>
+
+    «Որովհետև քեզ մոտ է կյանքի աղբյուրը,
+
+    և քո լույսով ենք լույսը տեսնում»
+
+  </p>
+
+  <div class=“reference”>ՍԱՂՄՈՍ 36:9</div>
+
+  <div class=“gold-line”></div>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“eyebrow”>COUNTDOWN TO OUR SPECIAL DAY</div>
+
+  <h2 class=“script” style=“font-size:52px”>Սպասում ենք ձեզ</h2>
+
+  <div class=“countdown”>
+
+    <div class=“time-box”><strong id=“days”>00</strong><span>ՕՐ</span></div>
+
+    <div class=“time-box”><strong id=“hours”>00</strong><span>ԺԱՄ</span></div>
+
+    <div class=“time-box”><strong id=“minutes”>00</strong><span>ՐՈՊԵ</span></div>
+
+    <div class=“time-box”><strong id=“seconds”>00</strong><span>ՎԱՅՐԿՅԱՆ</span></div>
+
+  </div>
+
+  <div class=“ornament”>✧ ❦ ✧</div>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“eyebrow”>THE PROGRAM</div>
+
+  <h2 class=“script” style=“font-size:55px”>Օրվա ծրագիրը</h2>
+
+  <div class=“schedule”>
+
+    <div class=“event”>
+
+      <div class=“event-time”>12:00</div>
+
+      <h3>Հաղարծին</h3>
+
+      <p>Սուրբ Մկրտություն</p>
+
+      <a class=“map-link”
+
+         href=“https://www.google.com/maps/search/?api=1&query=Haghartsin+Monastery+Armenia”
+
+         target=“_blank”>Ինչպես հասնել ↗</a>
+
+    </div>
+
+    <div class=“ornament”>✧</div>
+
+    <div class=“event”>
+
+      <div class=“event-time”>16:00</div>
+
+      <h3>Նոր Դվին</h3>
+
+      <p>Խնջույք</p>
+
+      <a class=“map-link”
+
+         href=“https://www.google.com/maps/search/?api=1&query=Nor+Dvin+Restaurant+Armenia”
+
+         target=“_blank”>Ինչպես հասնել ↗</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class=“reveal”>
+
+  <div class=“ornament”>♕</div>
+
+  <h2 class=“script” style=“font-size:52px”>With love</h2>
+
+  <div class=“gold-line”></div>
+
+  <p>
+
+    Ձեր ներկայությունը այս հիշողության մի մասն է,
+
+    որը մեզ հետ կմնա երկար:
+
+  </p>
+
+  <div class=“ornament”>🕊️</div>
+
+</section>
+
+<footer>
+
+  Հրավիրատոմսը սիրով պատրաստեց՝
+
+  <strong>amoreellaa</strong>
+
+</footer>
+
+</div>
+
+<button class=“music” onclick=“toggleMusic()”>♫</button>
+
+<audio id=“music” loop>
+
+  <source src=“music.mp3” type=“audio/mpeg”>
+
+</audio>
+
+<script>
+
+function openInvitation(){
+
+  document.getElementById(‘opening’).style.display=‘none’;
+
+  document.getElementById(‘invitation’).classList.add(‘show’);
+
+  window.scrollTo({top:0,behavior:’smooth’});
+
+}
+
+function toggleMusic(){
+
+  const music=document.getElementById(‘music’);
+
+  if(music.paused){
+
+    music.play();
+
+  }else{
+
+    music.pause();
+
+  }
+
+}
+
+const target=new Date(‘2026-12-26T12:00:00’).getTime();
+
+function updateCountdown(){
+
+  const now=new Date().getTime();
+
+  const distance=target-now;
+
+  if(distance<=0){
+
+    document.getElementById(‘days’).textContent=‘00’;
+textContent=‘00’;
+
+    return;
+
+  }
+
+  document.getElementById(‘days’).textContent=
+
+    Math.floor(distance/(1000*60*60*24));
+
+  document.getElementById(‘hours’).textContent=
+
+    Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+  document.getElementById(‘minutes’).textContent=
+
+    Math.floor((distance%(1000*60*60))/(1000*60));
+
+  document.getElementById(‘seconds’).textContent=
+
+    Math.floor((distance%(1000*60))/1000);
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+const observer=new IntersectionObserver(entries=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add(‘visible’);
+
+    }
+
+  });
+
+},{threshold:0.15});
+
+document.querySelectorAll(‘.reveal’).forEach(el=>{
+
+  observer.observe(el);
+
+});
+
+</script>
+
+</body>
+
+</html>
+    document.getElementById(‘hours’).textContent=‘00’;
+
+    document.getElementById(‘minutes’).textContent=‘00’;
+
+    document.getElementById(‘seconds’).
+      
