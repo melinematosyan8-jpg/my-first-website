@@ -8,1004 +8,473 @@
 
 <meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
 
-<title>Էդմոն և Էմիլի | Մկրտություն</title>
-
-<link rel=“preconnect” href=“https://fonts.googleapis.com”>
-
-<link href=“https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Armenian:wght@300;400;500;600&display=swap” rel=“stylesheet”>
+<title>Մկրտության հրավիրատոմս</title>
 
 <style>
 
-*{box-sizing:border-box;margin:0;padding:0}
+html, body {
 
-html{scroll-behavior:smooth}
+  margin: 0;
 
-body{
+  padding: 0;
 
- background:#f4eee8;
-
- color:#65564d;
-
- font-family:’Noto Serif Armenian’,serif;
-
- overflow-x:hidden;
+  width: 100%;
 
 }
 
-:root{—gold:#b99a6b;—cream:#f8f2ec}
+html.amore-opening-lock,
 
-section{
+body.amore-opening-lock {
 
- min-height:100vh;
-
- padding:75px 22px;
-
- display:flex;
-
- flex-direction:column;
-
- align-items:center;
-
- justify-content:center;
-
- text-align:center;
-
- position:relative;
+  overflow: hidden !important;
 
 }
 
-h1,h2{font-weight:400}
+/* OPENING */
 
-.script{
+#amore-open {
 
- font-family:’Great Vibes’,cursive;
+  position: fixed;
 
- color:var(—gold);
+  top: 0;
 
-}
+  left: 0;
 
-#opening{
+  width: 100%;
 
- background:radial-gradient(circle,#fffaf5,#eaded3);
+  height: 100vh;
 
- min-height:100svh;
+  height: 100dvh;
 
-}
+  overflow: hidden;
 
-.dove{
+  background: #d9c2a6;
 
- font-size:85px;
+  z-index: 999999;
 
- cursor:pointer;
+  opacity: 1;
 
- animation:float 3s ease-in-out infinite;
+  visibility: visible;
 
- filter:drop-shadow(0 8px 12px #b99a6b55);
+  transition:
 
-}
+    opacity 1.1s ease,
 
-.tap{
-
- margin-top:25px;
-
- letter-spacing:3px;
-
- font-size:11px;
-
- color:#a58b70;
+    visibility 1.1s ease;
 
 }
 
-@keyframes float{
+/* BACKGROUND IMAGE */
 
- 0%,100%{transform:translateY(0) rotate(-3deg)}
+#amore-open-photo {
 
- 50%{transform:translateY(-16px) rotate(3deg)}
+  position: absolute;
 
-}
+  top: 0;
 
-#invitation{display:none}
+  left: 0;
 
-#invitation.show{display:flex;animation:appear 1.5s ease}
+  width: 100%;
 
-@keyframes appear{
+  height: 100%;
 
- from{opacity:0;transform:translateY(25px)}
+  background-image:
 
- to{opacity:1;transform:translateY(0)}
+    url(“https://files.catbox.moe/zrezcd.png”);
 
-}
+  background-position: center center;
 
-.names{
+  background-size: cover;
 
- font-family:’Great Vibes’,cursive;
+  background-repeat: no-repeat;
 
- font-size:clamp(55px,13vw,88px);
+  transform: scale(1.03);
 
- color:#b39367;
+  animation:
 
- line-height:1.3;
-
-}
-
-.small-line{
-
- width:75px;height:1px;background:var(—gold);
-
- margin:25px auto;
+    amorePhotoZoom 10s ease-in-out infinite alternate;
 
 }
 
-p{
+/* SOFT LIGHT */
 
- font-size:15px;
+#amore-open-dark {
 
- line-height:2.2;
+  position: absolute;
 
- max-width:520px;
+  top: 0;
 
-}
+  left: 0;
 
-.eyebrow{
+  width: 100%;
 
- letter-spacing:4px;
+  height: 100%;
 
- font-size:10px;
+  background:
 
- color:#b39367;
+    rgba(255,245,230,0.035);
 
- margin-bottom:22px;
-
-}
-
-.divider{
-
- color:#b99a6b;
-
- font-size:27px;
-
- margin:35px 0;
-
-}
-  /* Լուսանկարների պատկերասրահ */
-
-.gallery{
-
- display:grid;
-
- grid-template-columns:1fr 1fr;
-
- gap:12px;
-
- width:100%;
-
- max-width:520px;
-
- margin:35px auto;
+  pointer-events: none;
 
 }
 
-.gallery img{
+/* OPEN BUTTON */
 
- width:100%;
+#amore-open-button {
 
- height:230px;
+  position: absolute;
 
- object-fit:cover;
+  left: 50%;
 
- border-radius:120px 120px 8px 8px;
+  top: 56%;
 
- box-shadow:0 8px 25px #8b765522;
+  width: 72%;
 
-}
+  height: 25%;
 
-.gallery img:last-child{
+  transform: translate(-50%,-50%);
 
- grid-column:1/3;
+  border: none;
 
- width:72%;
+  background: transparent;
 
- height:260px;
+  color: transparent;
 
- justify-self:center;
+  padding: 0;
 
- border-radius:160px 160px 8px 8px;
+  z-index: 20;
 
-}
+  cursor: pointer;
 
-/* Աստվածաշնչյան խոսք */
-
-.verse{
-
- background:#eee3d8;
-
- width:100%;
-
- padding:65px 25px;
+  -webkit-tap-highlight-color: transparent;
 
 }
 
-.verse .dove-icon{
+/* OPEN ANIMATION */
 
- font-size:48px;
+#amore-open.amore-closing {
 
- margin-bottom:20px;
+  opacity: 0;
 
-}
+  visibility: hidden;
 
-.verse-text{
-
- font-size:19px;
-
- line-height:2;
-
- color:#8c7359;
-
- font-weight:300;
+  pointer-events: none;
 
 }
 
-.reference{
+/* BUTTON */
 
- margin-top:18px;
+#amore-open.amore-closing
 
- font-size:12px;
+#amore-open-button {
 
- letter-spacing:2px;
+  transform:
 
- color:#ad916b;
+    translate(-50%,-50%)
 
-}
+    scale(1.15);
 
-/* Հետհաշվարկ */
+  opacity: 0;
 
-.countdown{
+  transition:
 
- display:flex;
+    transform 0.8s ease,
 
- justify-content:center;
-
- gap:13px;
-
- margin:35px auto;
-
- flex-wrap:wrap;
+    opacity 0.8s ease;
 
 }
 
-.time-box{
+/* PHOTO */
 
- min-width:65px;
+#amore-open.amore-closing
 
- padding:16px 10px;
+#amore-open-photo {
 
- border:1px solid #c9ae8a;
+  transform: scale(1.15);
 
- border-radius:40px 40px 8px 8px;
+  transition:
 
-}
-
-.time-box strong{
-
- display:block;
-
- font-size:25px;
-
- color:#a98a62;
-
- font-weight:400;
+    transform 1.3s ease;
 
 }
 
-.time-box span{
+/* PHOTO ZOOM */
 
- font-size:10px;
+@keyframes amorePhotoZoom {
 
- color:#927c67;
+  from {
 
-}
+    transform: scale(1.03);
 
-/* Օրվա ծրագիր */
+  }
 
-.schedule{
+  to {
 
- width:100%;
+    transform: scale(1.09);
 
- max-width:500px;
-
- margin:35px auto;
+  }
 
 }
 
-.event{
+/* MOBILE */
 
- padding:25px 15px;
+@media screen and (max-width: 600px) {
 
- border-bottom:1px solid #d8c6b2;
+  #amore-open-photo {
 
-}
+    background-position: center center;
 
-.event-time{
+  }
 
- font-family:’Great Vibes’,cursive;
+  #amore-open-button {
 
- font-size:42px;
+    width: 78%;
 
- color:#b39367;
+    height: 24%;
 
-}
+    top: 56%;
 
-.event h3{
-
- font-size:17px;
-
- font-weight:400;
-
- margin:12px 0;
+  }
 
 }
 
-.event p{font-size:13px}
+/* SMALL SCREEN */
 
-.map-link{
+@media screen and (max-width: 380px) {
 
- display:inline-block;
+  #amore-open-button {
 
- margin-top:17px;
+    width: 82%;
 
- padding:10px 22px;
+    height: 23%;
 
- border:1px solid #b99a6b;
-
- border-radius:30px;
-
- color:#9b805d;
-
- text-decoration:none;
-
- font-size:12px;
-
- transition:.3s;
+  }
 
 }
 
-.map-link:hover{
+/* DESKTOP */
 
- background:#b99a6b;
+@media screen and (min-width: 601px) {
 
- color:white;
+  #amore-open-photo {
 
-}
+    background-position: center center;
 
-/* Զարդարանք */
+  }
 
-.ornament{
+  #amore-open-button {
 
- font-size:38px;
+    width: 350px;
 
- color:#b99a6b;
+    height: 230px;
 
- margin:25px 0;
-
-}
-
-.gold-line{
-
- width:100px;
-
- height:1px;
-
- background:linear-gradient(to right,transparent,#b99a6b,transparent);
-
- margin:25px auto;
-
-}
-
-/* Հայտնվելու անիմացիա */
-
-.reveal{
-
- opacity:0;
-
- transform:translateY(35px);
-
- transition:all 1s ease;
-
-}
-
-.reveal.visible{
-
- opacity:1;
-
- transform:translateY(0);
-
-}
-
-/* Երաժշտության կոճակ */
-
-.music{
-
- position:fixed;
-
- bottom:22px;
-
- right:20px;
-
- width:48px;
-
- height:48px;
-
- border-radius:50%;
-
- border:1px solid #c3a77e;
-
- background:#f8f1e9;
-
- color:#a88a62;
-
- font-size:20px;
-
- z-index:99;
-
- box-shadow:0 4px 15px #8b765533;
-
-}
-
-footer{
-
- padding:45px 20px;
-
- background:#e9ded3;
-
- text-align:center;
-
- font-size:12px;
-
- color:#927b64;
-
-}
-
-@media(max-width:420px){
-
- .gallery img{height:190px}
-
- .gallery img:last-child{height:220px}
+  }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!— Բացման էջ —>
+<div id=“amore-open”>
 
-<section id=“opening”>
+  <div id=“amore-open-photo”></div>
 
-  <div class=“eyebrow”>A SPECIAL DAY</div>
+  <div id=“amore-open-dark”></div>
 
-  <div class=“dove” onclick=“openInvitation()”>🕊️</div>
+  <button
 
-  <p class=“tap”>ՍԵՂՄԵՔ ԱՂԱՎՆՈՒՆ՝ ՀՐԱՎԻՐԱՏՈՄՍԸ ԲԱՑԵԼՈՒ ՀԱՄԱՐ</p>
+    id=“amore-open-button”
 
-</section>
+    type=“button”
 
-<!— Հիմնական հրավիրատոմս —>
+    aria-label=“Open invitation”>
 
-<div id=“invitation”>
-
-<section>
-
-  <div class=“eyebrow”>ՄԵՐ ՓՈՔՐԻԿ ՀՐԱՇՔՆԵՐԻ ՄԿՐՏՈՒԹՅՈՒՆԸ</div>
-
-  <h1 class=“names”>Էդմոն և Էմիլի</h1>
-
-  <div class=“small-line”></div>
-
-  <p>26 Դեկտեմբեր 2026</p>
-
-  <div class=“ornament”>✧</div>
-
-  <p>
-
-    Սիրելի´ հյուրեր<br><br>
-
-    Այս օրվա գեղեցկությունը մեզ համար ամբողջական կլինի,
-
-    երբ կիսենք այն մարդկանց հետ, ովքեր մեր կյանքի կարևոր մասն են:
-
-  </p>
-
-  <div class=“divider”>❦</div>
-
-  <p>
-
-    Մենք սրտանց ցանկանում ենք, որ մեր կյանքի այս լուսավոր օրը կիսեք մեզ հետ:
-
-  </p>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“eyebrow”>OUR LITTLE ANGELS</div>
-
-  <h2 class=“script” style=“font-size:48px”>Our precious moments</h2>
-
-  <div class=“gallery”>
-
-    <img src=“images/edmon.jpg” alt=“Էդմոն”>
-
-    <img src=“images/emili.jpg” alt=“Էմիլի”>
-
-    <img src=“images/together.jpg” alt=“Էդմոն և Էմիլի”>
-
-  </div>
-
-</section>
-
-<section class=“verse reveal”>
-
-  <div class=“dove-icon”>🕊️</div>
-
-  <div class=“gold-line”></div>
-
-  <p class=“verse-text”>
-
-    «Որովհետև քեզ մոտ է կյանքի աղբյուրը,
-
-    և քո լույսով ենք լույսը տեսնում»
-
-  </p>
-
-  <div class=“reference”>ՍԱՂՄՈՍ 36:9</div>
-
-  <div class=“gold-line”></div>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“eyebrow”>COUNTDOWN TO OUR SPECIAL DAY</div>
-
-  <h2 class=“script” style=“font-size:52px”>Սպասում ենք ձեզ</h2>
-
-  <div class=“countdown”>
-
-    <div class=“time-box”><strong id=“days”>00</strong><span>ՕՐ</span></div>
-
-    <div class=“time-box”><strong id=“hours”>00</strong><span>ԺԱՄ</span></div>
-
-    <div class=“time-box”><strong id=“minutes”>00</strong><span>ՐՈՊԵ</span></div>
-
-    <div class=“time-box”><strong id=“seconds”>00</strong><span>ՎԱՅՐԿՅԱՆ</span></div>
-
-  </div>
-
-  <div class=“ornament”>✧ ❦ ✧</div>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“eyebrow”>THE PROGRAM</div>
-
-  <h2 class=“script” style=“font-size:55px”>Օրվա ծրագիրը</h2>
-
-  <div class=“schedule”>
-
-    <div class=“event”>
-
-      <div class=“event-time”>12:00</div>
-
-      <h3>Հաղարծին</h3>
-
-      <p>Սուրբ Մկրտություն</p>
-
-      <a class=“map-link”
-
-         href=“https://www.google.com/maps/search/?api=1&query=Haghartsin+Monastery+Armenia”
-
-         target=“_blank”>Ինչպես հասնել ↗</a>
-
-    </div>
-
-    <div class=“ornament”>✧</div>
-
-    <div class=“event”>
-
-      <div class=“event-time”>16:00</div>
-
-      <h3>Նոր Դվին</h3>
-
-      <p>Խնջույք</p>
-
-      <a class=“map-link”
-
-         href=“https://www.google.com/maps/search/?api=1&query=Nor+Dvin+Restaurant+Armenia”
-
-         target=“_blank”>Ինչպես հասնել ↗</a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“ornament”>♕</div>
-
-  <h2 class=“script” style=“font-size:52px”>With love</h2>
-
-  <div class=“gold-line”></div>
-
-  <p>
-
-    Ձեր ներկայությունը այս հիշողության մի մասն է,
-
-    որը մեզ հետ կմնա երկար:
-
-  </p>
-
-  <div class=“ornament”>🕊️</div>
-
-</section>
-
-<footer>
-
-  Հրավիրատոմսը սիրով պատրաստեց՝
-
-  <strong>amoreellaa</strong>
-
-</footer>
+  </button>
 
 </div>
 
-<button class=“music” onclick=“toggleMusic()”>♫</button>
-
-<audio id=“music” loop>
-
-  <source src=“music.mp3” type=“audio/mpeg”>
-
-</audio>
-
 <script>
 
-function openInvitation(){
+(function() {
 
-  document.getElementById(‘opening’).style.display=‘none’;
+  function amoreInitOpening() {
 
-  document.getElementById(‘invitation’).classList.add(‘show’);
+    var opening =
 
-  window.scrollTo({top:0,behavior:’smooth’});
+      document.getElementById(“amore-open”);
 
-}
+    var button =
 
-function toggleMusic(){
+      document.getElementById(“amore-open-button”);
 
-  const music=document.getElementById(‘music’);
+    if (!opening || !button) {
 
-  if(music.paused){
-
-    music.play();
-
-  }else{
-
-    music.pause();
-
-  }
-
-}
-
-const target=new Date(‘2026-12-26T12:00:00’).getTime();
-
-function updateCountdown(){
-
-  const now=new Date().getTime();
-
-  const distance=target-now;
-
-  if(distance<=0){
-
-    document.getElementById(‘days’).textContent=‘00’;
-
-    document.getElementById(‘hours’).textContent=‘00’;
-
-    document.getElementById(‘minutes’).textContent=‘00’;
-
-    document.getElementById(‘seconds’).
-      </head>
-
-<body>
-
-<!— Բացման էջ —>
-
-<section id=“opening”>
-
-  <div class=“eyebrow”>A SPECIAL DAY</div>
-
-  <div class=“dove” onclick=“openInvitation()”>🕊️</div>
-
-  <p class=“tap”>ՍԵՂՄԵՔ ԱՂԱՎՆՈՒՆ՝ ՀՐԱՎԻՐԱՏՈՄՍԸ ԲԱՑԵԼՈՒ ՀԱՄԱՐ</p>
-
-</section>
-
-<!— Հիմնական հրավիրատոմս —>
-
-<div id=“invitation”>
-
-<section>
-
-  <div class=“eyebrow”>ՄԵՐ ՓՈՔՐԻԿ ՀՐԱՇՔՆԵՐԻ ՄԿՐՏՈՒԹՅՈՒՆԸ</div>
-
-  <h1 class=“names”>Էդմոն և Էմիլի</h1>
-
-  <div class=“small-line”></div>
-
-  <p>26 Դեկտեմբեր 2026</p>
-
-  <div class=“ornament”>✧</div>
-
-  <p>
-
-    Սիրելի´ հյուրեր<br><br>
-
-    Այս օրվա գեղեցկությունը մեզ համար ամբողջական կլինի,
-
-    երբ կիսենք այն մարդկանց հետ, ովքեր մեր կյանքի կարևոր մասն են:
-
-  </p>
-
-  <div class=“divider”>❦</div>
-
-  <p>
-
-    Մենք սրտանց ցանկանում ենք, որ մեր կյանքի այս լուսավոր օրը կիսեք մեզ հետ:
-
-  </p>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“eyebrow”>OUR LITTLE ANGELS</div>
-
-  <h2 class=“script” style=“font-size:48px”>Our precious moments</h2>
-
-  <div class=“gallery”>
-
-    <img src=“images/edmon.jpg” alt=“Էդմոն”>
-
-    <img src=“images/emili.jpg” alt=“Էմիլի”>
-
-    <img src=“images/together.jpg” alt=“Էդմոն և Էմիլի”>
-
-  </div>
-
-</section>
-
-<section class=“verse reveal”>
-
-  <div class=“dove-icon”>🕊️</div>
-
-  <div class=“gold-line”></div>
-
-  <p class=“verse-text”>
-
-    «Որովհետև քեզ մոտ է կյանքի աղբյուրը,
-
-    և քո լույսով ենք լույսը տեսնում»
-
-  </p>
-
-  <div class=“reference”>ՍԱՂՄՈՍ 36:9</div>
-
-  <div class=“gold-line”></div>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“eyebrow”>COUNTDOWN TO OUR SPECIAL DAY</div>
-
-  <h2 class=“script” style=“font-size:52px”>Սպասում ենք ձեզ</h2>
-
-  <div class=“countdown”>
-
-    <div class=“time-box”><strong id=“days”>00</strong><span>ՕՐ</span></div>
-
-    <div class=“time-box”><strong id=“hours”>00</strong><span>ԺԱՄ</span></div>
-
-    <div class=“time-box”><strong id=“minutes”>00</strong><span>ՐՈՊԵ</span></div>
-
-    <div class=“time-box”><strong id=“seconds”>00</strong><span>ՎԱՅՐԿՅԱՆ</span></div>
-
-  </div>
-
-  <div class=“ornament”>✧ ❦ ✧</div>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“eyebrow”>THE PROGRAM</div>
-
-  <h2 class=“script” style=“font-size:55px”>Օրվա ծրագիրը</h2>
-
-  <div class=“schedule”>
-
-    <div class=“event”>
-
-      <div class=“event-time”>12:00</div>
-
-      <h3>Հաղարծին</h3>
-
-      <p>Սուրբ Մկրտություն</p>
-
-      <a class=“map-link”
-
-         href=“https://www.google.com/maps/search/?api=1&query=Haghartsin+Monastery+Armenia”
-
-         target=“_blank”>Ինչպես հասնել ↗</a>
-
-    </div>
-
-    <div class=“ornament”>✧</div>
-
-    <div class=“event”>
-
-      <div class=“event-time”>16:00</div>
-
-      <h3>Նոր Դվին</h3>
-
-      <p>Խնջույք</p>
-
-      <a class=“map-link”
-
-         href=“https://www.google.com/maps/search/?api=1&query=Nor+Dvin+Restaurant+Armenia”
-
-         target=“_blank”>Ինչպես հասնել ↗</a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class=“reveal”>
-
-  <div class=“ornament”>♕</div>
-
-  <h2 class=“script” style=“font-size:52px”>With love</h2>
-
-  <div class=“gold-line”></div>
-
-  <p>
-
-    Ձեր ներկայությունը այս հիշողության մի մասն է,
-
-    որը մեզ հետ կմնա երկար:
-
-  </p>
-
-  <div class=“ornament”>🕊️</div>
-
-</section>
-
-<footer>
-
-  Հրավիրատոմսը սիրով պատրաստեց՝
-
-  <strong>amoreellaa</strong>
-
-</footer>
-
-</div>
-
-<button class=“music” onclick=“toggleMusic()”>♫</button>
-
-<audio id=“music” loop>
-
-  <source src=“music.mp3” type=“audio/mpeg”>
-
-</audio>
-
-<script>
-
-function openInvitation(){
-
-  document.getElementById(‘opening’).style.display=‘none’;
-
-  document.getElementById(‘invitation’).classList.add(‘show’);
-
-  window.scrollTo({top:0,behavior:’smooth’});
-
-}
-
-function toggleMusic(){
-
-  const music=document.getElementById(‘music’);
-
-  if(music.paused){
-
-    music.play();
-
-  }else{
-
-    music.pause();
-
-  }
-
-}
-
-const target=new Date(‘2026-12-26T12:00:00’).getTime();
-
-function updateCountdown(){
-
-  const now=new Date().getTime();
-
-  const distance=target-now;
-
-  if(distance<=0){
-
-    document.getElementById(‘days’).textContent=‘00’;
-textContent=‘00’;
-
-    return;
-
-  }
-
-  document.getElementById(‘days’).textContent=
-
-    Math.floor(distance/(1000*60*60*24));
-
-  document.getElementById(‘hours’).textContent=
-
-    Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-  document.getElementById(‘minutes’).textContent=
-
-    Math.floor((distance%(1000*60*60))/(1000*60));
-
-  document.getElementById(‘seconds’).textContent=
-
-    Math.floor((distance%(1000*60))/1000);
-
-}
-
-updateCountdown();
-
-setInterval(updateCountdown,1000);
-
-const observer=new IntersectionObserver(entries=>{
-
-  entries.forEach(entry=>{
-
-    if(entry.isIntersecting){
-
-      entry.target.classList.add(‘visible’);
+      return;
 
     }
 
-  });
+    /* LOCK SCROLL */
 
-},{threshold:0.15});
+    document.documentElement
 
-document.querySelectorAll(‘.reveal’).forEach(el=>{
+      .classList
 
-  observer.observe(el);
+      .add(“amore-opening-lock”);
 
-});
+    document.body
+
+      .classList
+
+      .add(“amore-opening-lock”);
+
+    /* OPEN */
+
+    button.addEventListener(“click”, function() {
+
+      opening.classList.add(“amore-closing”);
+
+      /* UNLOCK PAGE */
+
+      document.documentElement
+
+        .classList
+
+        .remove(“amore-opening-lock”);
+
+      document.body
+
+        .classList
+
+        .remove(“amore-opening-lock”);
+
+      /* REFRESH PAGE */
+
+      setTimeout(function() {
+
+        opening.style.display = “none”;
+
+        window.dispatchEvent(
+
+          new Event(“scroll”)
+
+        );
+
+        window.dispatchEvent(
+
+          new Event(“resize”)
+
+        );
+
+        /* SECOND REFRESH */
+
+        setTimeout(function() {
+
+          window.dispatchEvent(
+
+            new Event(“scroll”)
+
+          );
+
+        }, 250);
+
+        /* THIRD REFRESH */
+       setTimeout(function() {
+
+          window.dispatchEvent(
+
+            new Event(“scroll”)
+
+          );
+
+        }, 700);
+
+        /* TILDA LAZY LOAD */
+
+        if (
+
+          typeof t_lazyload_update ===
+
+          “function”
+
+        ) {
+
+          try {
+
+            t_lazyload_update();
+
+          } catch (e) {}
+
+        }
+
+        /* FINAL REFRESH */
+
+        setTimeout(function() {
+
+          window.dispatchEvent(
+
+            new Event(“scroll”)
+
+          );
+
+        }, 1200);
+
+      }, 850);
+
+      /* REMOVE OPENING */
+
+      setTimeout(function() {
+
+        if (
+
+          opening &&
+
+          opening.parentNode
+
+        ) {
+
+          opening.parentNode
+
+            .removeChild(opening);
+
+        }
+
+      }, 1800);
+
+    });
+
+  }
+
+  /* WAIT */
+
+  if (
+
+    document.readyState ===
+
+    “loading”
+
+  ) {
+
+    document.addEventListener(
+
+      “DOMContentLoaded”,
+
+      amoreInitOpening
+
+    );
+
+  } else {
+
+    amoreInitOpening();
+
+  }
+
+})();
 
 </script>
 
 </body>
 
-</html>
-    document.getElementById(‘hours’).textContent=‘00’;
-
-    document.getElementById(‘minutes’).textContent=‘00’;
-
-    document.getElementById(‘seconds’).
-      
+</html>          
